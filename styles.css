@@ -29,3 +29,98 @@
 .nx-sticky > p.nx-font-semibold {
   display: none !important;
 }
+/* 전체 컨테이너 */
+.flow-container {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 각 단계 박스 */
+.flow-step {
+  width: 320px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+/* 박스 */
+.flow-step {
+  width: 320px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  text-align: center;
+}
+
+/* STEP 라벨 */
+.flow-step-label {
+  display: block;
+  font-size: 12px;
+  color: #6b6d72;
+  margin-bottom: 6px;
+}
+
+/* 제목 */
+.flow-step strong {
+  display: block;
+  font-size: 16px;
+  color: #111827;
+}
+
+/* 설명 */
+.flow-step p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* 화살표 */
+.flow-arrow {
+  font-size: 20px;
+  color: #9ca3af;
+}
+.logo-img {
+  height: 32px;
+  display: block;
+  margin-right: 12px;
+  transform: scale(1.15);
+  transform-origin: left center;
+}
+.logo-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  overflow: hidden;
+}
+.logo-text {
+  font-size: 14px;
+  color: #4d525c;
+  margin-bottom: 1px;
+  transform: translateY(6px);
+}
+/* 테이블 헤더만 살짝 조정 */
+table thead {
+  background-color: #f3f4f6;
+}
+/* 테이블 hover 배경 제거 */
+table tbody tr {
+  background-color: transparent !important;
+}
+/* 코드 컬럼만 강조 */
+table td:first-child {
+  font-weight: 600;
+  width: 80px;
+}
+table th:first-child,
+table td:first-child {
+  white-space: nowrap;
+}
+table a {
+  pointer-events: none;
+  cursor: default;
+}

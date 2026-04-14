@@ -2,7 +2,7 @@
   "index": {
     "display": "hidden"
   },
-  "guide": "가이드",
+  "guide": "API 소개",
   "user-api": "사용자 API",
   "payment-api": "결제 API"
 }

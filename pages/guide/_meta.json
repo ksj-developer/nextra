@@ -1,4 +1,7 @@
 {
-  "intro": "API 소개",
-  "key-issue": "KEY 발급"
+  "index": "API 공통 가이드",
+  "overview": "API 개요",
+  "auth": "인증 및 통신",
+  "flow": "요청 순서",
+  "reference": "참고 정보"
 }

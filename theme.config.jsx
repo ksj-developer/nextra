@@ -1,10 +1,19 @@
 export default {
-  logo: <span style={{ fontWeight: "bold" }}>KICC CMS API Docs</span>,
-
+  logo: (
+    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <img src="/logo.svg" className="logo-img" />
+      <span className="logo-text">CMS API Docs</span>
+    </div>
+  ),
+  head: (
+    <>
+      <link rel="icon" href="/favicon.svg" />
+    </>
+  ),
   navbar: {
     extraContent: (
       <>
-        <a href="/guide">가이드</a>
+        <a href="/guide">API 소개</a>
         <a href="/user-api">사용자 API</a>
         <a href="/payment-api">결제 API</a>
       </>
