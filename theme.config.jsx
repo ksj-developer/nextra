@@ -14,7 +14,7 @@ export default {
     extraContent: (
       <>
         <a href="/guide">API 공통 가이드</a>
-        <a href="/api">개발 가이드</a>
+        <a href="/develop-guide">개발 가이드</a>
       </>
     ),
   },
