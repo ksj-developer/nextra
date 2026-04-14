@@ -1,9 +1,11 @@
 {
   "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
-  "/guide/flow": "pages/guide/flow.js",
-  "/guide/auth": "pages/guide/auth.js",
+  "/_document": "pages/_document.js",
   "/guide/overview": "pages/guide/overview.js",
-  "/guide": "pages/guide.js"
+  "/": "pages/index.js",
+  "/guide": "pages/guide.js",
+  "/guide/auth": "pages/guide/auth.js",
+  "/guide/flow": "pages/guide/flow.js",
+  "/guide/reference": "pages/guide/reference.js"
 }
