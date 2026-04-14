@@ -1,0 +1,8 @@
+{
+  "index": {
+    "display": "hidden"
+  },
+  "guide": "가이드",
+  "user-api": "사용자 API",
+  "payment-api": "결제 API"
+}

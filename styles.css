@@ -1,24 +1,31 @@
-/* ===== Nextra Nav 최종 (완전 안정) ===== */
+/* ============================= */
+/* 🔥 검색창 ↔ 메뉴 간격 벌리기 */
+/* ============================= */
+.nextra-nav-container {
+  gap: 40px; /* 전체 요소 사이 간격 */
+}
 
-/* nav 내부 flex */
-.nextra-nav-container > div {
+/* ============================= */
+/* 🔥 검색창 오른쪽 여백 */
+/* ============================= */
+.nextra-search {
+  margin-right: 40px; /* 검색창 ↔ 메뉴 간격 */
+}
+
+/* ============================= */
+/* 🔥 메뉴들 사이 간격 */
+/* ============================= */
+.nextra-nav-container > div:last-child {
   display: flex;
-  align-items: center;
-  width: 100%;
+  gap: 32px; /* 메뉴 간격 */
 }
 
-/* 메뉴 간격 */
+/* ============================= */
+/* 🔥 메뉴 클릭 영역도 넓히기 */
+/* ============================= */
 .nextra-nav-container a {
-  margin-left: 20px;
-  white-space: nowrap;
+  padding: 4px 6px;
 }
-
-/* ⭐ 핵심: 검색 wrapper를 오른쪽으로 밀기 */
-.nextra-nav-container .nextra-search {
-  margin-left: auto;
-}
-
-/* hover */
-.nextra-nav-container a:hover {
-  color: #2563eb;
+.nx-sticky > p.nx-font-semibold {
+  display: none !important;
 }
