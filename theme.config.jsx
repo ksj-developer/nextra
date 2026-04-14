@@ -14,11 +14,7 @@ export default {
     extraContent: (
       <>
         <a href="/guide">API 공통 가이드</a>
-        <a href="/inquiry-api">정보성 API</a>
-        <a href="/withdraw-api">출금 API</a>
-        <a href="/account-api">계좌 API</a>
-        <a href="/deposit-api">입금 API</a>
-        <a href="/refund-api">환불 API</a>
+        <a href="/api">개발 가이드</a>
       </>
     ),
   },
