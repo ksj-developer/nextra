@@ -1,0 +1,24 @@
+/* ===== Nextra Nav 최종 (완전 안정) ===== */
+
+/* nav 내부 flex */
+.nextra-nav-container > div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* 메뉴 간격 */
+.nextra-nav-container a {
+  margin-left: 20px;
+  white-space: nowrap;
+}
+
+/* ⭐ 핵심: 검색 wrapper를 오른쪽으로 밀기 */
+.nextra-nav-container .nextra-search {
+  margin-left: auto;
+}
+
+/* hover */
+.nextra-nav-container a:hover {
+  color: #2563eb;
+}
