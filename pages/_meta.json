@@ -2,7 +2,9 @@
   "index": {
     "display": "hidden"
   },
-  "guide": "API 소개",
-  "user-api": "사용자 API",
-  "payment-api": "결제 API"
+  "guide": "API 공통 가이드",
+  "inquiry-api": "정보 제공 API",
+  "withdraw-api": "출금 API",
+  "account-api": "계좌 API",
+  "refund-api": "환불 API"
 }

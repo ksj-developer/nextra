@@ -1,6 +1,8 @@
 ---
-title: 인증 및 통신
+title: 인증 방식
 ---
+
+import { Callout } from "nextra/components";
 
 ## 인증 방식
 
@@ -8,10 +10,11 @@ title: 인증 및 통신
 운영서버 인증키는 KICC 로 요청하여 받은 후 **Header** 값에 넣고 호출 하시길 바랍니다.<br />
 **개발서버 인증키** : `Hxs8PkwSPn+Fo2m78aPvrw==`
 
----
+## 요청 Header
 
-| 구분        | 설명             |
-| ----------- | ---------------- |
-| 프로토콜    | HTTPS            |
-| 데이터 형식 | application/json |
-| 네트워크    | 인터넷망         |
+| Key          | Value            | 필수 |
+| ------------ | ---------------- | ---- |
+| Content-Type | application/json | ✅   |
+| authKey      | YOUR_AUTH_KEY    | ✅   |
+
+<Callout type="warning">개발된 Application이 **운영으로 이관되면 반드시 운영 API 인증키로 변경**해 주어야 정상거래가 가능합니다.</Callout>

@@ -13,9 +13,12 @@ export default {
   navbar: {
     extraContent: (
       <>
-        <a href="/guide">API 소개</a>
-        <a href="/user-api">사용자 API</a>
-        <a href="/payment-api">결제 API</a>
+        <a href="/guide">API 공통 가이드</a>
+        <a href="/inquiry-api">정보성 API</a>
+        <a href="/withdraw-api">출금 API</a>
+        <a href="/account-api">계좌 API</a>
+        <a href="/deposit-api">입금 API</a>
+        <a href="/refund-api">환불 API</a>
       </>
     ),
   },
@@ -34,7 +37,7 @@ export default {
   gitTimestamp: null,
   useNextSeoProps() {
     return {
-      titleTemplate: "%s – KICC CMS API Docs",
+      titleTemplate: "%s KICC CMS API Docs",
     };
   },
 };

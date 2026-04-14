@@ -1,7 +1,7 @@
 {
-  "index": "API 공통 가이드",
+  "index": "CMS 소개",
   "overview": "API 개요",
-  "auth": "인증 및 통신",
+  "auth": "인증 방식",
   "flow": "요청 순서",
-  "reference": "참고 정보"
+  "bankcode": "은행 코드"
 }
