@@ -5,25 +5,25 @@ export default function Main() {
     <section className="main-hero">
       <div className="main-hero__inner">
         <div className="main-hero__left">
-          <div className="main-hero__badge fade-item delay-1">✨ AI 연동 지원</div>
+          <div className="main-hero__badge fade-item delay-1">Easy API</div>
 
-          <p className="main-hero__eyebrow fade-item delay-1">KICC Developer Platform</p>
+          <p className="main-hero__eyebrow fade-item delay-2">CMS API Developer Platform</p>
 
-          <h1 className="main-hero__title fade-item delay-2">
-            AI로 완성하는
+          <h1 className="main-hero__title fade-item delay-3">
+            CMS API 하나로
             <br />
-            차세대 결제 경험
+            수납 · 지급을 구현하세요
           </h1>
 
-          <p className="main-hero__desc fade-item delay-3">
-            온라인 결제 서비스로 비즈니스 결제를 혁신하세요.
+          <p className="main-hero__desc fade-item delay-4">
+            기존에는 은행 심사와 복잡한 연동이 필요했다면
             <br />
-            AI가 연동부터 최적화까지 모든 과정을 지원합니다.
+            이제는 CMS API 로 간단하게 연결할 수 있습니다.
           </p>
 
-          <div className="fade-item delay-4">
+          <div className="fade-item delay-5">
             <a href="/guide" className="main-hero__button">
-              개발자 가이드 시작하기
+              개발 가이드 시작하기
             </a>
           </div>
         </div>
