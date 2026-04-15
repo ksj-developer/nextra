@@ -1,3 +1,5 @@
+import Footer from "./components/Footer";
+
 export default {
   logo: (
     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -10,6 +12,9 @@ export default {
       <link rel="icon" href="/favicon.svg" />
     </>
   ),
+  footer: {
+    component: <Footer />,
+  },
   navbar: {
     extraContent: (
       <>
@@ -23,7 +28,6 @@ export default {
   },
   project: {},
   darkMode: false,
-  footer: { text: "" },
   feedback: {
     content: null,
   },
