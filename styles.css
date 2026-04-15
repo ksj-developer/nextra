@@ -172,3 +172,19 @@ pre code {
   line-height: 1.6 !important;
   color: #4b5563 !important;
 }
+.nextra-content table a {
+  color: #2563eb !important;
+  text-decoration: underline;
+}
+
+.nextra-content table a:hover {
+  color: #1d4ed8 !important;
+}
+.api-get {
+  color: #16a34a;
+  font-weight: 600;
+}
+.api-post {
+  color: #2563eb;
+  font-weight: 600;
+}

@@ -2,6 +2,6 @@
   "index": "CMS 소개",
   "overview": "API 개요",
   "auth": "인증 방식",
-  "flow": "요청 순서",
+  "flow": "요청 흐름",
   "bankcode": "은행 코드"
 }

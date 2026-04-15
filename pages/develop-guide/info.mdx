@@ -1,0 +1,239 @@
+---
+title: 정보 API
+---
+
+---
+
+import CodeBlock from "../../components/CodeBlock";
+
+### 1. 약관동의 조회 API
+
+<span className="api-get">GET</span> `{API 도메인}/inquiry/term`
+
+개인정보 수집 및 이용 동의, 개인정보 제3자 제공동의, 출금이체 동의여부 및 해지사실 통지 안내 등 약관동의에 대한 정보를 조회합니다.
+
+#### 요청 파라미터
+
+| 필드명     | 타입     | 필수 | 길이 | 설명                      |
+| ---------- | -------- | ---- | ---- | ------------------------- |
+| `mchtTrNo` | `String` | Yes  | 50   | 가맹점거래번호            |
+| `trTime`   | `String` | Yes  | 14   | 거래일시 (YYYYMMDDHHMMSS) |
+| `mid`      | `String` | Yes  | 10   | 이용기관코드              |
+
+#### 요청 예시
+
+<CodeBlock> 
+```json
+{
+  "mchtTrNo": "123456789",
+  "trTime": "20220401130101",
+  "mid": "C123456789"
+}
+```
+</CodeBlock>
+
+#### 응답
+
+| 필드명        | 타입     | 필수 | 길이 | 설명           |
+| ------------- | -------- | ---- | ---- | -------------- |
+| `resCd`       | `String` | Yes  | 4    | 응답코드       |
+| `resMsg`      | `String` | Yes  | 20   | 응답메세지     |
+| `mchtTrNo`    | `String` | Yes  | 50   | 가맹점거래번호 |
+| `useTerms`    | `String` | Yes  | 1500 | 이용동의       |
+| `offerTerms`  | `String` | Yes  | 1500 | 제공동의       |
+| `cancelTerms` | `String` | Yes  | 1500 | 취소동의       |
+
+#### 응답 예시
+
+<CodeBlock> 
+```json
+{
+  "resCd": "0000",
+  "resMsg": "성공",
+  "mchtTrNo": "123456789",
+  "useTerms": "개인정보 수집 및 이용..",
+  "offerTerms": "개인정보 제3자 제공동의..",
+  "cancelTerms": "출금이체 동의여부 및 해지사실.."
+}
+```
+</CodeBlock>
+---
+### 2. 거래상태 조회 API
+<span className="api-post">POST</span> `{API 도메인}/inquiry/tr-info`
+
+출금 및 환불요청 시 응답을 수신하지 못한 경우 해당 거래의 상태 확인하는 API 입니다.
+전일, 당일 거래일자만 조회가 가능합니다.
+
+#### 요청 파라미터
+
+| 필드명     | 타입     | 필수 | 길이 | 설명                                        |
+| ---------- | -------- | ---- | ---- | ------------------------------------------- |
+| `mchtTrNo` | `String` | Yes  | 50   | 가맹점거래번호                              |
+| `trTime`   | `String` | Yes  | 14   | 거래일시 (YYYYMMDDHHMMSS)                   |
+| `mid`      | `String` | Yes  | 10   | 이용기관코드                                |
+| `trxDate`  | `String` | Yes  | 8    | 거래일자 (YYYYMMDD)                         |
+| `trxType`  | `String` | Yes  | 1    | 거래타입 (환불일 경우 'R', 출금일 경우 'W') |
+
+#### 요청 예시
+
+<CodeBlock>
+```json
+{
+  "mchtTrNo": 123456789,
+  "trTime": 20260101235959,
+  "mid": "C123456789",
+  "trxDate": 20250101,
+  "trxType": "R"
+}
+```
+</CodeBlock>
+
+#### 응답(환불)
+
+`trxType`(거래타입) 이 `R`(환불)일 경우
+
+| 필드명      | 타입     | 필수 | 길이 | 설명                |
+| ----------- | -------- | ---- | ---- | ------------------- |
+| `resCd`     | `String` | Yes  | 4    | 응답코드            |
+| `resMsg`    | `String` | Yes  | 20   | 응답메세지          |
+| `mchtTrNo`  | `String` | Yes  | 50   | 가맹점거래번호      |
+| `mid`       | `String` | Yes  | 10   | 이용기관코드        |
+| `bkResCd`   | `String` | Yes  | 4    | 원거래 응답코드     |
+| `bkResMsg`  | `String` | Yes  | 20   | 원거래 응답메세지   |
+| `trxDate`   | `String` | Yes  | 8    | 거래일자 (YYYYMMDD) |
+| `trxTime`   | `String` | Yes  | 6    | 거래시각 (HHMMSS)   |
+| `bankCd`    | `String` | Yes  | 3    | 은행코드            |
+| `acctNo`    | `String` | Yes  | 16   | 계좌번호            |
+| `payerNo`   | `String` | Yes  | 20   | 납부자번호          |
+| `remainAmt` | `Long`   | Yes  | 10   | 환불가능 잔액       |
+| `bookInfo`  | `String` | Yes  | 16   | 통장적요            |
+| `refYn`     | `String` | Yes  | 1    | 환불여부            |
+| `refundAmt` | `Long`   | Yes  | 10   | 환불금액            |
+| `refTrNo`   | `String` | Yes  | 7    | 참조 일련번호       |
+
+#### 응답 예시(환불)
+
+<CodeBlock> 
+```json
+{
+  "resCd": "0000",
+  "resMsg": "정상",
+  "mchtTrNo": "123456789",
+  "mid": "C123456789",
+  "bkResCd": "0000",
+  "bkResMsg": "정상",
+  "trxDate": "20260101",
+  "trxTime": "235959",
+  "bankCd": "090",
+  "acctNo": "123456789012345",
+  "payerNo": "C0000000000000000000",
+  "remainAmt": 10000,
+  "bookInfo": "통장적요",
+  "refundAmt": 5000,
+  "refTrNo": "0000002",
+  "refYn": "Y"
+}
+```
+</CodeBlock>
+
+#### 응답(출금)
+
+`trxType`(거래타입) 이 `W`(출금)일 경우
+
+| 필드명      | 타입     | 필수 | 길이 | 설명                |
+| ----------- | -------- | ---- | ---- | ------------------- |
+| `resCd`     | `String` | Yes  | 4    | 응답코드            |
+| `resMsg`    | `String` | Yes  | 20   | 응답메세지          |
+| `mchtTrNo`  | `String` | Yes  | 50   | 가맹점거래번호      |
+| `mid`       | `String` | Yes  | 10   | 이용기관코드        |
+| `bkResCd`   | `String` | Yes  | 4    | 원거래 응답코드     |
+| `bkResMsg`  | `String` | Yes  | 20   | 원거래 응답메세지   |
+| `trxDate`   | `String` | Yes  | 8    | 거래일자 (YYYYMMDD) |
+| `trxTime`   | `String` | Yes  | 6    | 거래시각 (HHMMSS)   |
+| `bankCd`    | `String` | Yes  | 3    | 은행코드            |
+| `acctNo`    | `String` | Yes  | 16   | 계좌번호            |
+| `payerNo`   | `String` | Yes  | 20   | 납부자번호          |
+| `remainAmt` | `Long`   | Yes  | 10   | 환불가능 잔액       |
+| `bookInfo`  | `String` | Yes  | 16   | 통장적요            |
+| `trxNo`     | `String` | Yes  | 7    | 거래 일련번호       |
+| `trxAmt`    | `Long`   | Yes  | 10   | 출금금액            |
+
+#### 응답 예시(출금)
+
+<CodeBlock> 
+```json
+{
+  "resCd": "0000",
+  "resMsg": "정상",
+  "mchtTrNo": "123456789",
+  "mid": "C123456789",
+  "bkResCd": "0000",
+  "bkResMsg": "정상",
+  "trxDate": "20260101",
+  "trxTime": "235959",
+  "bankCd": "090",
+  "acctNo": "123456789012345",
+  "payerNo": "C0000000000000000000",
+  "remainAmt": 10000,
+  "bookInfo": "통장적요",
+  "trxNo": "0000001",
+  "trxAmt": 5000
+}
+```
+</CodeBlock>
+
+---
+
+### 3. 예치금잔액 조회 API
+
+<span className="api-post">POST</span> `{API 도메인}/inquiry/reserve-balance`
+
+남은 예치금 잔액을 조회하는 API 입니다.
+
+#### 요청 파라미터
+
+| 필드명     | 타입     | 필수 | 길이 | 설명                      |
+| ---------- | -------- | ---- | ---- | ------------------------- |
+| `mchtTrNo` | `String` | Yes  | 50   | 가맹점거래번호            |
+| `trTime`   | `String` | Yes  | 14   | 거래일시 (YYYYMMDDHHMMSS) |
+| `mid`      | `String` | Yes  | 10   | 이용기관코드              |
+| `bankCd`   | `String` | Yes  | 3    | 은행코드                  |
+| `acctNo`   | `String` | Yes  | 16   | 계좌번호                  |
+
+#### 요청 예시
+
+<CodeBlock> 
+```json
+{
+  "mchtTrNo": "123456789",
+  "trTime": "20220401130101",
+  "mid": "C123456789",
+  "bankCd": "090",
+  "acctNo": "123456789012345"
+}
+```
+</CodeBlock>
+
+#### 응답
+
+| 필드명     | 타입     | 필수 | 길이 | 설명            |
+| ---------- | -------- | ---- | ---- | --------------- |
+| `resCd`    | `String` | Yes  | 4    | 처리결과코드    |
+| `resMsg`   | `String` | Yes  | 40   | 결과메시지      |
+| `mchtTrNo` | `String` | Yes  | 50   | 가맹점거래번호  |
+| `mid`      | `String` | Yes  | 10   | 이용기관코드    |
+| `balance`  | `Long`   | Yes  | 10   | 환불예치금 잔액 |
+
+#### 응답 예시
+
+<CodeBlock> 
+```json
+{
+  "resCd": "0000",
+  "resMsg": "성공",
+  "mchtTrNo": 123456789,
+  "mid": "C123456789",
+  "balance": 1004
+}
+```
+</CodeBlock>
