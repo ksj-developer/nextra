@@ -1,19 +1,19 @@
 /* ============================= */
-/* 🔥 검색창 ↔ 메뉴 간격 벌리기 */
+/*  검색창 ↔ 메뉴 간격 벌리기 */
 /* ============================= */
 .nextra-nav-container {
   gap: 40px; /* 전체 요소 사이 간격 */
 }
 
 /* ============================= */
-/* 🔥 검색창 오른쪽 여백 */
+/*  검색창 오른쪽 여백 */
 /* ============================= */
 .nextra-search {
   margin-right: 40px; /* 검색창 ↔ 메뉴 간격 */
 }
 
 /* ============================= */
-/* 🔥 메뉴들 사이 간격 */
+/*  메뉴들 사이 간격 */
 /* ============================= */
 .nextra-nav-container > div:last-child {
   display: flex;
@@ -21,7 +21,7 @@
 }
 
 /* ============================= */
-/* 🔥 메뉴 클릭 영역도 넓히기 */
+/*  메뉴 클릭 영역도 넓히기 */
 /* ============================= */
 .nextra-nav-container a {
   padding: 4px 6px;
@@ -103,19 +103,45 @@
   margin-bottom: 1px;
   transform: translateY(6px);
 }
-/* 테이블 헤더만 살짝 조정 */
-table thead {
-  background-color: #f3f4f6;
-}
-/* 테이블 hover 배경 제거 */
-table tbody tr {
+/* 1. 스트라이프 제거 */
+table tr:nth-child(even) {
   background-color: transparent !important;
 }
-/* 코드 컬럼만 강조 */
-table td:first-child {
-  font-weight: 600;
-  width: 80px;
+
+/* 2. 세로선 제거 */
+table th,
+table td {
+  border-left: none !important;
+  border-right: none !important;
 }
+
+/* (선택) 가로선만 깔끔하게 */
+table th {
+  text-align: left !important;
+}
+
+/* (선택) 헤더 스타일 깔끔하게 */
+table th {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+table td {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* 링크 */
+table a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+table a:hover {
+  text-decoration: underline;
+}
+
 table th:first-child,
 table td:first-child {
   white-space: nowrap;
@@ -123,4 +149,26 @@ table td:first-child {
 table a {
   pointer-events: none;
   cursor: default;
+}
+pre {
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+pre code {
+  border-radius: 0 !important;
+}
+/* 본문 전체 강제 */
+.nextra-content main p,
+.nextra-content main li {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: #4b5563 !important;
+}
+
+/* 테이블 내부 전체 강제 */
+.nextra-content main table * {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #4b5563 !important;
 }
