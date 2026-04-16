@@ -78,10 +78,15 @@ table td:first-child {
 }
 
 table a {
-  color: #2563eb;
+  pointer-events: none;
   text-decoration: none;
   pointer-events: none;
   cursor: default;
+}
+
+table a[href^="mailto:"] {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 table a:hover {
