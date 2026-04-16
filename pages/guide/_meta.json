@@ -1,7 +1,5 @@
 {
-  "index": "CMS 소개",
-  "overview": "API 개요",
+  "index": "API 소개",
   "auth": "인증 방식",
-  "flow": "요청 흐름",
-  "bankcode": "은행 코드"
+  "flow": "요청 흐름"
 }

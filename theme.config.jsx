@@ -20,6 +20,7 @@ export default {
       <>
         <a href="/guide">API 공통 가이드</a>
         <a href="/develop-guide">개발 가이드</a>
+        <a href="/common">공통 정보</a>
       </>
     ),
   },

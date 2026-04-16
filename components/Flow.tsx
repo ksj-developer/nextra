@@ -108,13 +108,14 @@ export default function Flow() {
     const handleScroll = () => {
       let closestStep = 1;
       let minDistance = Infinity;
-
       refs.current.forEach((el, i) => {
         if (!el) return;
 
         const rect = el.getBoundingClientRect();
-        const center = window.innerHeight / 2;
-        const distance = Math.abs(rect.top - center);
+
+        const center = window.innerHeight * 0.3;
+        const elementCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(elementCenter - center);
 
         if (distance < minDistance) {
           minDistance = distance;
@@ -137,13 +138,13 @@ export default function Flow() {
         <div className={`flow-row ${activeStep >= item.step ? "active" : ""}`} key={i} ref={(el) => (refs.current[i] = el)}>
           <div className="flow-left">
             <div className={`flow-step ${activeStep === item.step ? "blue" : ""}`}>{item.step}</div>
-
-            {/* 🔥 마지막도 포함해서 렌더 */}
             <div className={`flow-line ${i === options.length - 1 ? "last" : ""}`} />
           </div>
 
           <div className="flow-content">
-            <h3>{item.category}</h3>
+            <h3>
+              <strong>{item.category}</strong>
+            </h3>
 
             <div className="card-grid">
               {item.items.map((card, idx) => (

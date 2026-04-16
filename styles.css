@@ -105,9 +105,9 @@ pre code {
 /* ============================= */
 .nextra-content main p,
 .nextra-content main li {
-  font-size: 15px !important;
-  line-height: 1.7 !important;
-  color: #4b5563 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: #797d86 !important;
 }
 
 .nextra-content main table * {
@@ -155,6 +155,7 @@ pre code {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-bottom: 100px;
 }
 
 /* 한 줄 */
@@ -182,7 +183,6 @@ pre code {
   text-align: center;
   line-height: 44px;
   font-weight: bold;
-
   margin-top: 0;
   transform: none;
   position: relative;
@@ -248,12 +248,13 @@ pre code {
   width: 100%;
   text-decoration: none;
   color: inherit;
-
-  border: 1px solid #e5e7eb;
+  min-width: 0;
+  border: 2px solid #e5e7eb;
   border-radius: 16px;
   padding: 20px 24px;
   background: #ffffff;
-
+  box-sizing: border-box;
+  word-break: keep-all;
   transition: all 0.2s ease;
 }
 
@@ -276,6 +277,7 @@ pre code {
   font-size: 18px;
   margin-bottom: 6px;
   word-break: keep-all;
+  white-space: normal;
 }
 
 .card p {
@@ -283,6 +285,7 @@ pre code {
   color: #6b7280;
   line-height: 1.6;
   word-break: keep-all;
+  white-space: normal;
 }
 
 .badge {
@@ -310,7 +313,14 @@ pre code {
     grid-template-columns: 1fr;
   }
 }
+.nextra-content main {
+  padding-top: 0 !important;
+}
+.nextra-content main section {
+  padding-top: 56px !important;
+}
 footer.footer {
+  margin-top: auto;
   background: #3b3f4a;
   padding: 48px 20px;
   color: #c8ced8;
@@ -377,12 +387,40 @@ footer.footer .footer-copy {
   font-size: 12px;
   color: #8c95a3;
 }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.nextra-content {
+  flex: 1;
+}
 .main-hero {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  padding: 44px 0 56px;
-  overflow: hidden;
-  background: transparent;
+  padding: 48px 0 150px;
+  position: relative;
+  background: linear-gradient(180deg, #eef4ff 0%, #e0ebff 60%, #ffffff 100%);
+}
+
+.main-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; /* 줄임 */
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(238, 244, 255, 0), #ffffff);
+}
+
+article.nextra-content > main > .main-hero + div {
+  display: none !important;
 }
 
 .main-hero__inner {
@@ -394,6 +432,8 @@ footer.footer .footer-copy {
   align-items: center;
   justify-content: center;
   column-gap: 56px;
+  position: relative;
+  z-index: 2;
 }
 
 .main-hero__left {
@@ -408,8 +448,8 @@ footer.footer .footer-copy {
   padding: 0 14px;
   font-size: 13px;
   border-radius: 999px;
-  background: #e8f1ff;
-  color: #3d6df2;
+  background: #6f9dff;
+  color: #fff;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -418,7 +458,7 @@ footer.footer .footer-copy {
   margin: 14px 0 0;
   font-size: 14px;
   font-weight: 600;
-  color: #5c6472;
+  color: #94a3b8;
   letter-spacing: -0.02em;
 }
 
@@ -433,7 +473,7 @@ footer.footer .footer-copy {
 }
 
 .main-hero__desc {
-  margin: 24px 0 0;
+  margin: 30px 0 20px 0;
   font-size: 16px;
   line-height: 1.8;
   font-weight: 500;
@@ -451,21 +491,21 @@ footer.footer .footer-copy {
   height: 38px !important;
   padding: 0 16px !important;
 
-  background: #3f6df6 !important;
+  background: #2563eb !important;
   color: #fff !important;
-
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
   font-size: 14px !important;
   font-weight: 600 !important;
   line-height: 1 !important;
 
   border-radius: 6px !important;
   cursor: pointer !important;
-  margin-top: 28px !important;
+  margin-top: 20px !important;
 }
 
 .main-hero__button:hover {
   transform: translateY(-1px);
-  background: #355fe0;
+  background: #1d4ed8;
   box-shadow: 0 10px 22px rgba(63, 109, 246, 0.2);
 }
 
@@ -521,7 +561,7 @@ footer.footer .footer-copy {
 
 @media (max-width: 1180px) {
   .main-hero {
-    padding: 34px 0 44px;
+    padding: 34px 0 64px;
   }
 
   .main-hero__inner {
@@ -578,4 +618,52 @@ footer.footer .footer-copy {
   .main-hero__image {
     max-width: 340px;
   }
+}
+/* 헤더 아래 공간 줄이기 */
+article.nextra-content > main {
+  padding-top: 0px !important; /* 0이면 너무 붙고, 8px 정도가 자연스러움 */
+}
+
+/* 히어로 바로 아래 빈 공간 제거 */
+article.nextra-content > main > div.nx-mt-16 {
+  display: none !important;
+  margin-top: 0 !important;
+}
+
+/* 푸터 위 기본 여백 제거 */
+article.nextra-content {
+  min-height: auto !important;
+  padding-bottom: 0 !important;
+}
+
+/* 혹시 breadcrumb를 다시 살릴 거 아니면 아예 숨김 */
+.nextra-breadcrumb {
+  display: none !important;
+}
+.nextra-callout {
+  font-size: 15px !important; /* 본문이랑 동일 */
+  line-height: 1.7 !important;
+}
+
+.nextra-callout p {
+  font-size: inherit !important;
+}
+.nx-mb-8 {
+  margin-top: 4em;
+}
+table.nx-overflow-x-scroll.nextra-scrollbar {
+  overflow-x: auto !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+}
+body > div[style*="position: fixed"][style*="bottom"] {
+  display: none !important;
+}
+.nextra-toc .nextra-scrollbar {
+  overflow-y: auto; /* 스크롤 기능 유지 */
+  scrollbar-width: none; /* Firefox */
+}
+
+.nextra-toc .nextra-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome */
 }
