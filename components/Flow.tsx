@@ -135,9 +135,16 @@ export default function Flow() {
   return (
     <div className="flow-wrap">
       {options.map((item, i) => (
-        <div className={`flow-row ${activeStep >= item.step ? "active" : ""}`} key={i} ref={(el) => (refs.current[i] = el)}>
+        <div
+          key={i}
+          className={`flow-row ${activeStep >= item.step ? "active" : ""}`}
+          ref={(el) => {
+            refs.current[i] = el;
+          }}
+        >
           <div className="flow-left">
             <div className={`flow-step ${activeStep === item.step ? "blue" : ""}`}>{item.step}</div>
+
             <div className={`flow-line ${i === options.length - 1 ? "last" : ""}`} />
           </div>
 
